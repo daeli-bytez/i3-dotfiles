@@ -13,4 +13,4 @@
 ## APPS 
 helix, alacritty, i3-wm, dmenu, fish(shell), fastfetch, xsetroot,i3status
 
-(ps: make sure you have "exec i3" in your "~/.xinitrc" file also quick heads up, this doesnt have a status bar for extra minimalism and it also doesnt have brightness keybinds so if u want you have to get brightnessctl)
+(ps: make sure you have "exec i3" in your "~/.xinitrc" file also quick heads up it also doesnt have brightness keybinds so if u want you have to get brightnessctl)
