@@ -1,0 +1,31 @@
+general {
+    colors = true
+    interval = 5
+    color_good = "#a6e3a1"
+    color_degraded = "#f9e2af"
+    color_bad = "#f38ba8"
+    output_format = "i3bar"
+    separator = " || "
+}
+
+order += "volume master"
+order += "memory"
+order += "tztime local"
+
+volume master {
+    format = " • %volume"
+    format_muted = "muted"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+memory {
+    format = "%used"
+    threshold_degraded = "1G"
+    format_degraded = "%available"
+}
+
+tztime local {
+    format = "%I:%M %p "
+}

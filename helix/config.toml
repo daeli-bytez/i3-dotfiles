@@ -1,0 +1,84 @@
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+cursorline = true
+bufferline = "never"
+color-modes = true
+scrolloff = 7
+end-of-line-diagnostics = "hint"
+
+[editor.auto-save]
+focus-lost = true
+
+[editor.smart-tab]
+enable = true
+supersede-menu = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "error"
+
+[editor.whitespace]
+render = "all"
+
+[editor.whitespace.characters]
+space = "·"
+tab = "→"
+newline = "⏎"
+
+[editor.indent-guides]
+render = true
+character = "│"
+skip-levels = 1
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+
+[editor.file-picker]
+hidden = false
+git-ignore = true
+
+[editor.statusline]
+left = ["mode", "spacer", "spinner", "spacer", "version-control", "file-name", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "selections", "position", "file-type"]
+separator = "│"
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+Q = ":bc"
+H = ":bp"
+L = ":bn"
+
+y = ["yank_main_selection_to_clipboard"]
+p = ["paste_clipboard_after"]
+P = ["paste_clipboard_before"]
+R = ["replace_selections_with_clipboard"]
+
+"C-h" = "jump_view_left"
+"C-j" = "jump_view_down"
+"C-k" = "jump_view_up"
+"C-l" = "jump_view_right"
+
+"C-/" = "toggle_comments"
+x = ["extend_line_below", "extend_to_line_bounds"]
+X = ["extend_line_above", "extend_to_line_bounds"]
+"A-i" = "select_textobject_inner"
+"A-a" = "select_textobject_around"
+
+"A-j" = ["extend_to_line_bounds", "delete_selection", "move_line_down", "paste_before"]
+"A-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
+"C-w" = ":toggle-option soft-wrap.enable"
+
+[keys.insert]
+j = { j = "normal_mode" }

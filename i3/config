@@ -1,0 +1,85 @@
+set $mod Mod4
+font pango:monospace 8
+floating_modifier $mod
+bindsym $mod+s exec --no-startup-id dmenu_run -i -fn "monospace-11:bold" -nb "#191926" -nf "#cdd6f4" -sb "#89b4fa" -sf "#1e1e2e" -p "Search: "
+
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+q kill
+
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+space floating toggle
+
+set $ws1 "1•I"
+set $ws2 "2•II"
+set $ws3 "3•III"
+set $ws4 "4•IV"
+set $ws5 "5•V"
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-msg exit"
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+mode "resize" {
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+gaps inner 4
+gaps outer 4
+smart_gaps off
+default_border pixel 2
+default_floating_border pixel 2
+client.focused          #89b4fa #1e1e2e #cdd6f4 #74c7ec #89b4fa
+client.unfocused        #313244 #181825 #bac2de #313244 #313244
+client.focused_inactive #313244 #181825 #bac2de #313244 #313244
+client.urgent           #f38ba8 #181825 #cdd6f4 #f38ba8 #f38ba8
+
+bar {
+    status_command i3status -c ~/.config/i3status/config
+    position top
+    separator_symbol "|"
+    font pango:monospace bold 10
+    workspace_buttons yes
+    strip_workspace_numbers yes
+    colors {
+        background #191926
+        statusline #89b4fa
+        separator  #45475a
+        focused_workspace  #89b4fa   #191926   #89b4fa
+        active_workspace   #313244   #191926   #bac2de
+        inactive_workspace #11111b   #191926   #585b70
+        urgent_workspace   #f38ba8   #191926   #f38ba8
+    }
+}
+
+exec --no-startup-id xsetroot -solid "#1e1e2e"
